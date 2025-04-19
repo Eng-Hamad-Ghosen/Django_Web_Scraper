@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  redis_very_academy:
+    image: redis:latest
+    container_name: redis_very_academy
+  django_very_academy:
+    container_name: django_very_academy
+    build:
+      context: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+      - SECRETS_KEY=django-insecure-4)90j=c+$%+y&r6g&5svv%p)!r%5r=dtt!xr+m&0nzw+9k8c1q
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+    depends_on:
+      - redis_very_academy
+
+  celery_very_academy:
+    container_name: celery_very_academy
+    build:
+      context: .
+    volumes:
+      - .:/usr/src/app
+
+    environment:
+      - DEBUG=1
+      - SECRETS_KEY=django-insecure-4)90j=c+$%+y&r6g&5svv%p)!r%5r=dtt!xr+m&0nzw+9k8c1q
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+    depends_on:
+      - redis_very_academy
+
+

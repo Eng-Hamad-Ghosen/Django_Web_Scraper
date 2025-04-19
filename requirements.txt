@@ -12,6 +12,7 @@ Django==5.2
 django-celery-beat==2.8.0
 django-restframework==0.0.1
 django-timezone-field==7.1
+djangorestframework==3.16.0
 kombu==5.5.3
 prompt_toolkit==3.0.51
 python-crontab==3.2.0

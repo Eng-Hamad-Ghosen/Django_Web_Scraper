@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+*.py[cod]
+__pycache__/
+*.so
+
+# Django specific
+*.pot
+*.pyc
+\ No newline at end of file
+*.pyo
+*.pyd
+
+# Logs and local database
+*.log
+*.sql
+*.db
+
+# Virtual environment
+venv/
+.env/
+*.env
+
+# MyPy
+.mypy_cache/
+
+# VSCode
+.vscode/
+
+# MacOS system files
+.DS_Store
