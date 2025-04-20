@@ -13,3 +13,8 @@ class SendBulkEmailsView(APIView):
         send_bulk_emails.delay(email_list)
 
         return Response({"message": "Email sending task has been scheduled!"}, status=200)
+    
+def test(request):
+    print("11111111111111111")
+    send_email_task.delay("ABCDEFG")
+    print("22222222222222222")

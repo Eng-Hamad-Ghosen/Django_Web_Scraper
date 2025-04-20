@@ -24,6 +24,11 @@ services:
     container_name: celery_very_academy
     build:
       context: .
+    command: celery -A project worker --loglevel=info
+
+    # or👇
+
+    # command: celery --app=project worker -l INFO
     volumes:
       - .:/usr/src/app
 
